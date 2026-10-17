@@ -1,0 +1,108 @@
+<?php<?php
+declare(strict_types=1);
+
+final class RegistrationPolicy
+{
+    public function decide(int $capacity, int $registered, bool $open, bool $waitingEnabled): string
+    {
+        // 1. Dữ liệu không hợp lệ -> rejected
+        if ($capacity <= 0 || $registered < 0 || $registered > $capacity) {
+            return 'rejected';
+        }
+
+        // 2. Sự kiện đã đóng -> rejected
+        if (!$open) {
+            return 'rejected';
+        }
+
+        // 3. Sự kiện mở và còn chỗ -> confirmed
+        if ($registered < $capacity) {
+            return 'confirmed';
+        }
+
+        // 4. Sự kiện mở nhưng hết chỗ -> waiting hoặc rejected tùy danh sách chờ
+        return $waitingEnabled ? 'waiting' : 'rejected';
+    }
+}
+declare(strict_types=1);
+
+final class RegistrationPolicy
+{
+    public function decide(int $capacity, int $registered, bool $open, bool $waitingEnabled): string
+<?php
+declare(strict_types=1);
+
+final class RegistrationPolicy
+{
+    public function decide(int $capacity, int $registered, bool $open, bool $waitingEnabled): string
+    {
+        // 1. Dữ liệu không hợp lệ -> rejected
+        if ($capacity <= 0 || $registered < 0 || $registered > $capacity) {
+            return 'rejected';
+        }
+
+        // 2. Sự kiện đã đóng -> rejected
+        if (!$open) {
+            return 'rejected';
+        }
+
+        // 3. Sự kiện mở và còn chỗ -> confirmed
+        if ($registered < $capacity) {
+            return 'confirmed';
+        }
+
+        // 4. Sự kiện mở nhưng hết chỗ -> waiting hoặc rejected tùy danh sách chờ
+        return $waitingEnabled ? 'waiting' : 'rejected';
+    }
+}    {
+        // 1. Dữ liệu không hợp lệ -> rejected        if ($capacity <= 0 || $registered < 0 || $registered > $capacity) {
+            return 'rejected';
+        }
+
+        // 2. Sự kiện đã đóng -> rejected
+        if (!$open) {
+            return 'rejected';
+        }
+
+        // 3. Sự kiện mở và còn chỗ -> confired
+        if ($registered < $capacity) {
+            return 'confirmed';
+        }
+
+        // 4. Sự kiện mở nhưng hết chỗ -> waiting hoặc rejected tùy danh sách chờ
+        return $waitingEnabled ? 'waiting' : 'rejected';
+    }
+}<?php
+declare(strict_types=1);
+final class RegistrationPolicy {
+ <?php
+declare(strict_types=1);
+
+final class RegistrationPolicy
+{
+    public function decide(int $capacity, int $registered, bool $open, bool $waitingEnabled): string
+    {
+        // 1. Dữ liệu không hợp lệ -> rejected
+        if ($capacity <= 0 || $registered < 0 || $registered > $capacity) {
+            return 'rejected';
+        }
+
+        // 2. Sự kiện đã đóng -> reject       if (!$open) {
+            return 'rejected';
+        }
+
+        // 3. Sự kiện mở và còn chỗ -> confirmed
+        if ($registered < $capacity) {
+            return 'confirmed';
+        }
+
+        // 4. Sự kiện mở nhưng hết chỗ -> waiting hoặc rejected tùy danh sách chờ
+        return $waitingEnabled ? 'waiting' : 'rejected';
+    }
+}   public function decide(int $capacity, int $registered,
+        bool $open, bool $waitingEnabled): string {
+        // TODO: invalid -> rejected; closed -> rejected;
+        // available -> confirmed; full -> waiting/rejected.
+        return 'TODO';
+    }
+}
